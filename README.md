@@ -75,6 +75,15 @@ cd server
 yarn watch-debug
 ```
 
+## Gotchas
+
+### EADDRINUSE, Address already in use
+
+Kill all node processes
+```bash
+killall node
+```
+
 ## References
 * [TypesSript](https://www.typescriptlang.org/)
 * [React](https://reactjs.org/)
