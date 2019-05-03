@@ -11,9 +11,7 @@
     "module": "commonjs",
     "resolveJsonModule": true,
     "outDir": "build",
-    "sourceMap": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "sourceMap": true
   },
   "include": ["src"]
 }

@@ -3,13 +3,13 @@ import program from "commander";
 
 import resolvers from "./resolvers";
 import typeDefs from "./schema";
-import { db } from "./models";
+import { sequelize } from "./models";
 
 program.option("-s, --sync-db", "Sync database").parse(process.argv);
 
 const run = async () => {
   if (program.syncDb) {
-    await db.sync({ force: true });
+    await sequelize.sync({ force: true });
     // TODO: exit node after sync
   }
   // Type definitions define the "shape" of your data and specify

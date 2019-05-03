@@ -7,13 +7,19 @@
     "strict": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["dom", "dom.iterable", "esnext", "es2017.object"],
     "allowJs": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ]
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

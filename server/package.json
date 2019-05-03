@@ -8,9 +8,7 @@
     "commander": "^2.19.0",
     "graphql": "^14.2.1",
     "mysql2": "^1.6.5",
-    "reflect-metadata": "^0.1.13",
-    "sequelize": "^4.42.0",
-    "sequelize-typescript": "^0.6.7",
+    "sequelize": "^5.8.2",
     "typescript": "^3.3.3"
   },
   "devDependencies": {
