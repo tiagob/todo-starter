@@ -21,7 +21,7 @@ Todo.init(
       primaryKey: true
     },
     name: {
-      type: new DataTypes.STRING(128),
+      type: DataTypes.TEXT,
       allowNull: false
     },
     complete: {

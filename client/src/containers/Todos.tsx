@@ -15,7 +15,7 @@ const styles = ({ spacing }: Theme) =>
   createStyles({
     root: {
       padding: spacing.unit,
-      width: 400
+      width: "80%"
     }
   });
 

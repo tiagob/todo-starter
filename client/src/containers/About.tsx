@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import { createStyles, WithStyles, withStyles } from "@material-ui/core";
+import { createStyles, WithStyles, withStyles, Link } from "@material-ui/core";
 
 const styles = createStyles({
   root: {
@@ -14,9 +14,11 @@ const styles = createStyles({
 const About = ({ classes }: WithStyles<typeof styles>) => (
   <div className={classes.root}>
     <Typography variant="h6" gutterBottom>
-      created by
+      github
     </Typography>
-    <div>tiago.bndr@gmail.com</div>
+    <Link href="https://github.com/tiagob/ts-react-apollo-node" target="_blank">
+      https://github.com/tiagob/ts-react-apollo-node
+    </Link>
   </div>
 );
 
