@@ -50,11 +50,24 @@ cd client
 yarn watch
 ```
 
-## Editor (IDE)
-We recommend using [VSCode](https://code.visualstudio.com/). The config files (`.vscode/`) are included which formats on save and automatically attaches the debugger.
+## Setup [VSCode](https://code.visualstudio.com/) (recommended IDE/Editor) 
+The config files (`.vscode/`) are included which formats on save and automatically attaches the debugger.
 
-## Debugging the server
-*Assumes VSCode*
+### Install recommended [extensions](https://code.visualstudio.com/docs/editor/extension-gallery)
+* [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+* [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+* [GraphQL for VSCode](https://marketplace.visualstudio.com/items?itemName=kumar-harsh.graphql-for-vscode)
+
+### Debug client
+
+Run `watch` from [VSCode terminal](https://code.visualstudio.com/docs/editor/integrated-terminal). Press `F5` or click the green debug icon for `Chrome` [launch configuration](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations).
+```bash
+cd client
+yarn watch
+```
+
+### Debug server
 
 Run `watch-debug` from [VSCode terminal](https://code.visualstudio.com/docs/editor/integrated-terminal). Debugger automattically attaches. See [debugging in VSCode](https://code.visualstudio.com/docs/editor/debugging).
 ```bash
@@ -69,3 +82,4 @@ yarn watch-debug
 * [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
 * [GraphQL Codegen](https://graphql-code-generator.com/docs/getting-started/)
 * [Sequelize](http://docs.sequelizejs.com/)
+* [Yarn Workspaces](https://yarnpkg.com/lang/en/docs/workspaces/)
