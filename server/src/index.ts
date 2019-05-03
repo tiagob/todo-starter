@@ -10,7 +10,6 @@ program.option("-s, --sync-db", "Sync database").parse(process.argv);
 const run = () => {
   if (program.syncDb) {
     sequelize.sync({ force: true });
-    // TODO: exit node after sync
   } else {
     // Type definitions define the "shape" of your data and specify
     // which ways the data can be fetched from the GraphQL server.
