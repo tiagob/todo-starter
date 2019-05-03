@@ -53,6 +53,15 @@ yarn watch
 ## Editor (IDE)
 We recommend using [VSCode](https://code.visualstudio.com/). The config files (`.vscode/`) are included which formats on save and automatically attaches the debugger.
 
+## Debugging the server
+*Assumes VSCode*
+
+Run `watch-debug` from [VSCode terminal](https://code.visualstudio.com/docs/editor/integrated-terminal). Debugger automattically attaches. See [debugging in VSCode](https://code.visualstudio.com/docs/editor/debugging).
+```bash
+cd server
+yarn watch-debug
+```
+
 ## References
 * [TypesSript](https://www.typescriptlang.org/)
 * [React](https://reactjs.org/)
