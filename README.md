@@ -1,4 +1,5 @@
-# TypeScript React Apollo Node Example
+# Full-stack todo starter app
+TypeScript with React, Apollo and Node example
 
 ## Setup
 *Assumes MacOS*
