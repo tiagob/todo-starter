@@ -20,6 +20,12 @@ brew install mysql
 brew install yarn
 ```
 
+### Clone repo and cd to root of project
+```bash
+git clone https://github.com/tiagob/ts-react-apollo-node.git
+cd ts-react-apollo-node
+```
+
 ### Install dependencies
 ```bash
 yarn install
@@ -27,7 +33,7 @@ yarn install
 
 ### Setup database
 
-From the root of this cloned repo, create database and sync (creating tables).
+Create database and sync (creating tables).
 ```bash
 cd server
 ./createDb.sh  # Assumes MySQL is installed with Homebrew
