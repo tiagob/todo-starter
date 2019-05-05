@@ -68,11 +68,13 @@ The config files (`.vscode/`) are included which formats on save and automatical
 
 ### Debug client
 
-Run `watch` from [VSCode terminal](https://code.visualstudio.com/docs/editor/integrated-terminal). Press `F5` or click the green debug icon for `Chrome` [launch configuration](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations).
+Run `watch` from [VSCode terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).
 ```bash
 cd client
 yarn watch
 ```
+
+Press `F5` or click the green debug icon for `Chrome` [launch configuration](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations) to attach.
 
 ### Debug server
 
@@ -86,7 +88,7 @@ yarn watch-debug
 
 ### EADDRINUSE, Address already in use
 
-Kill all node processes
+Kill all node processes.
 ```bash
 killall node
 ```
