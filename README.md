@@ -1,4 +1,5 @@
-# TypeScript React Apollo Node Example
+# Full-stack todo starter app
+TypeScript with React, Apollo and Node example
 
 ## Setup
 *Assumes MacOS*
@@ -20,6 +21,12 @@ brew install mysql
 brew install yarn
 ```
 
+### Clone repo and cd to root of project
+```bash
+git clone https://github.com/tiagob/ts-react-apollo-node.git
+cd ts-react-apollo-node
+```
+
 ### Install dependencies
 ```bash
 yarn install
@@ -27,7 +34,7 @@ yarn install
 
 ### Setup database
 
-From the root of this cloned repo, create database and sync (creating tables).
+Create database and sync (creating tables).
 ```bash
 cd server
 ./createDb.sh  # Assumes MySQL is installed with Homebrew
@@ -61,11 +68,13 @@ The config files (`.vscode/`) are included which formats on save and automatical
 
 ### Debug client
 
-Run `watch` from [VSCode terminal](https://code.visualstudio.com/docs/editor/integrated-terminal). Press `F5` or click the green debug icon for `Chrome` [launch configuration](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations).
+Run `watch` from [VSCode terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).
 ```bash
 cd client
 yarn watch
 ```
+
+Press `F5` or click the green debug icon for `Chrome` [launch configuration](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations) to attach.
 
 ### Debug server
 
@@ -79,7 +88,7 @@ yarn watch-debug
 
 ### EADDRINUSE, Address already in use
 
-Kill all node processes
+Kill all node processes.
 ```bash
 killall node
 ```
