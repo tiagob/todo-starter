@@ -14,6 +14,12 @@ TypeScript with React, Apollo and Node example
 Install MySQL with Homebrew ([MySQL commands on MacOS](https://gist.github.com/nrollr/3f57fc15ded7dddddcc4e82fe137b58e)).
 ```bash
 brew install mysql
+brew tap homebrew/services
+```
+
+Start MySQL
+```bash
+brew services start mysql
 ```
 
 ### Install [Yarn](https://yarnpkg.com/)
