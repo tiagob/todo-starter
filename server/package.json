@@ -20,7 +20,8 @@
     "husky": "^2.2.0",
     "nodemon": "^1.18.10",
     "prettier": "^1.17.0",
-    "pretty-quick": "^1.10.0"
+    "pretty-quick": "^1.10.0",
+    "ts-node": "^8.2.0"
   },
   "scripts": {
     "start": "node ./build/index.js",
