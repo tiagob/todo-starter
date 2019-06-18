@@ -7,7 +7,7 @@ import {
   TodosQueryVariables
 } from "../generated/graphql";
 
-export default () => {
+export default function CreateTodo() {
   const [name, setName] = useState("");
 
   return (
@@ -47,4 +47,4 @@ export default () => {
       )}
     </CreateTodoComponent>
   );
-};
+}

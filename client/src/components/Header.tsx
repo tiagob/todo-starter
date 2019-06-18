@@ -1,49 +1,40 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import {
   Typography,
   Toolbar,
-  createStyles,
-  WithStyles,
-  withStyles,
   Button,
-  Link
+  Link,
+  makeStyles
 } from "@material-ui/core";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, LinkProps } from "react-router-dom";
 import { Page } from "../constants";
 
-const styles = createStyles({
+const useStyles = makeStyles({
   toolbar: {
     display: "flex",
     justifyContent: "space-between"
   }
 });
 
-interface Props extends WithStyles<typeof styles> {
-  children?: ReactNode;
-  ToolbarIcon?: ReactNode;
-  padding?: boolean;
-}
-
-const Header = ({ classes }: Props) => (
-  <AppBar>
-    <Toolbar className={classes.toolbar}>
-      <Link
-        component={props => <RouterLink {...props} to="/" />}
-        color="inherit"
-      >
-        <Typography variant="h6" color="inherit">
-          Todos
-        </Typography>
-      </Link>
-      <Button
-        color="inherit"
-        component={props => <RouterLink {...props} to={`/${Page.about}`} />}
-      >
-        About
-      </Button>
-    </Toolbar>
-  </AppBar>
+const AdapterLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  (props, ref) => <RouterLink innerRef={ref as any} {...props} />
 );
 
-export default withStyles(styles)(Header);
+export default function Header() {
+  const classes = useStyles();
+  return (
+    <AppBar>
+      <Toolbar className={classes.toolbar}>
+        <Link component={AdapterLink} color="inherit" to="/">
+          <Typography variant="h6" color="inherit">
+            Todos
+          </Typography>
+        </Link>
+        <Button color="inherit" component={AdapterLink} to={`/${Page.about}`}>
+          About
+        </Button>
+      </Toolbar>
+    </AppBar>
+  );
+}

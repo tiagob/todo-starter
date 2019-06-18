@@ -1,7 +1,8 @@
 import gql from "graphql-tag";
-import * as React from "react";
 import * as ReactApollo from "react-apollo";
+import * as React from "react";
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+export type Maybe<T> = T | null;
 
 export const CreateTodoDocument = gql`
   mutation CreateTodo($name: String!) {
@@ -16,19 +17,12 @@ export type CreateTodoMutationFn = ReactApollo.MutationFn<
   CreateTodoMutation,
   CreateTodoMutationVariables
 >;
+export type CreateTodoComponentProps = Omit<
+  ReactApollo.MutationProps<CreateTodoMutation, CreateTodoMutationVariables>,
+  "mutation"
+>;
 
-export const CreateTodoComponent = (
-  props: Omit<
-    Omit<
-      ReactApollo.MutationProps<
-        CreateTodoMutation,
-        CreateTodoMutationVariables
-      >,
-      "mutation"
-    >,
-    "variables"
-  > & { variables?: CreateTodoMutationVariables }
-) => (
+export const CreateTodoComponent = (props: CreateTodoComponentProps) => (
   <ReactApollo.Mutation<CreateTodoMutation, CreateTodoMutationVariables>
     mutation={CreateTodoDocument}
     {...props}
@@ -70,19 +64,12 @@ export type UpdateTodoMutationFn = ReactApollo.MutationFn<
   UpdateTodoMutation,
   UpdateTodoMutationVariables
 >;
+export type UpdateTodoComponentProps = Omit<
+  ReactApollo.MutationProps<UpdateTodoMutation, UpdateTodoMutationVariables>,
+  "mutation"
+>;
 
-export const UpdateTodoComponent = (
-  props: Omit<
-    Omit<
-      ReactApollo.MutationProps<
-        UpdateTodoMutation,
-        UpdateTodoMutationVariables
-      >,
-      "mutation"
-    >,
-    "variables"
-  > & { variables?: UpdateTodoMutationVariables }
-) => (
+export const UpdateTodoComponent = (props: UpdateTodoComponentProps) => (
   <ReactApollo.Mutation<UpdateTodoMutation, UpdateTodoMutationVariables>
     mutation={UpdateTodoDocument}
     {...props}
@@ -122,19 +109,12 @@ export type DestroyTodoMutationFn = ReactApollo.MutationFn<
   DestroyTodoMutation,
   DestroyTodoMutationVariables
 >;
+export type DestroyTodoComponentProps = Omit<
+  ReactApollo.MutationProps<DestroyTodoMutation, DestroyTodoMutationVariables>,
+  "mutation"
+>;
 
-export const DestroyTodoComponent = (
-  props: Omit<
-    Omit<
-      ReactApollo.MutationProps<
-        DestroyTodoMutation,
-        DestroyTodoMutationVariables
-      >,
-      "mutation"
-    >,
-    "variables"
-  > & { variables?: DestroyTodoMutationVariables }
-) => (
+export const DestroyTodoComponent = (props: DestroyTodoComponentProps) => (
   <ReactApollo.Mutation<DestroyTodoMutation, DestroyTodoMutationVariables>
     mutation={DestroyTodoDocument}
     {...props}
@@ -172,13 +152,12 @@ export const TodosDocument = gql`
     }
   }
 `;
+export type TodosComponentProps = Omit<
+  ReactApollo.QueryProps<TodosQuery, TodosQueryVariables>,
+  "query"
+>;
 
-export const TodosComponent = (
-  props: Omit<
-    Omit<ReactApollo.QueryProps<TodosQuery, TodosQueryVariables>, "query">,
-    "variables"
-  > & { variables?: TodosQueryVariables }
-) => (
+export const TodosComponent = (props: TodosComponentProps) => (
   <ReactApollo.Query<TodosQuery, TodosQueryVariables>
     query={TodosDocument}
     {...props}
@@ -239,8 +218,6 @@ export type TodosQuery = { __typename?: "Query" } & {
     { __typename?: "Todo" } & Pick<Todo, "id" | "name" | "complete">
   >;
 };
-
-export type Maybe<T> = T | null;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -251,6 +228,7 @@ export type Scalars = {
 };
 
 export type Mutation = {
+  __typename?: "Mutation";
   createTodo: Todo;
   updateTodo: Todo;
   destroyTodo: Todo;
@@ -271,10 +249,12 @@ export type MutationDestroyTodoArgs = {
 };
 
 export type Query = {
+  __typename?: "Query";
   todos: Array<Todo>;
 };
 
 export type Todo = {
+  __typename?: "Todo";
   id: Scalars["Int"];
   name: Scalars["String"];
   complete: Scalars["Boolean"];

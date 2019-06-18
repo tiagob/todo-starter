@@ -9,6 +9,7 @@ export type Scalars = {
 };
 
 export type Mutation = {
+  __typename?: "Mutation";
   createTodo: Todo;
   updateTodo: Todo;
   destroyTodo: Todo;
@@ -29,10 +30,12 @@ export type MutationDestroyTodoArgs = {
 };
 
 export type Query = {
+  __typename?: "Query";
   todos: Array<Todo>;
 };
 
 export type Todo = {
+  __typename?: "Todo";
   id: Scalars["Int"];
   name: Scalars["String"];
   complete: Scalars["Boolean"];
