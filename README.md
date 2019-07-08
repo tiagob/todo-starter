@@ -35,7 +35,6 @@ brew install yarn
 
 ### Clone repo and cd to root of project
 
-
 ```bash
 git clone https://github.com/tiagob/todo-starter.git
 cd todo-starter
