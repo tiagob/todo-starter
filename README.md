@@ -35,10 +35,13 @@ brew install yarn
 
 ### Clone repo and cd to root of project
 
+
 ```bash
-git clone https://github.com/tiagob/ts-react-apollo-node.git
-cd ts-react-apollo-node
+git clone https://github.com/tiagob/todo-starter.git
+cd todo-starter
 ```
+
+**All commands below are run from the root project directory `todo-starter`.**
 
 ### Install dependencies
 
