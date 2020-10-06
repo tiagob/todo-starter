@@ -1,3 +1,5 @@
+**DEPRECATED IN FAVOR OF https://github.com/tiagob/create-full-stack**
+
 # Full-stack todo starter app
 
 TypeScript with React, Apollo and Node example
