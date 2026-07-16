@@ -1,0 +1,232 @@
+version: 1
+
+repository:
+  name: "Raihan-Moosa/zeroflesh-demo-todo-starter"
+  default_branch: "master"
+  repository_type: "fullstack-web-application"
+  status: "deprecated-demo-project"
+
+project:
+  languages:
+    - "TypeScript"
+    - "JavaScript"
+    - "GraphQL"
+
+  frameworks:
+    frontend:
+      - "React"
+      - "Create React App"
+      - "Apollo Client"
+      - "Material UI"
+
+    backend:
+      - "Node.js"
+      - "Apollo Server"
+      - "Sequelize"
+      - "MySQL"
+
+  package_manager: "yarn"
+  workspace_type: "yarn-workspaces"
+
+paths:
+  frontend: "client"
+  backend: "server"
+
+  generated:
+    - "client/src/generated/"
+    - "server/src/generated/"
+
+commands:
+  install:
+    working_directory: "."
+    command: "yarn install"
+
+  build:
+    frontend:
+      working_directory: "client"
+      command: "yarn build"
+
+    backend:
+      working_directory: "server"
+      command: "yarn build"
+
+  test:
+    frontend:
+      working_directory: "client"
+      command: "CI=true yarn test --watchAll=false"
+
+    backend:
+      available: false
+      reason: "No backend test script is currently defined."
+
+  lint:
+    available: false
+    reason: "No standalone lint script is currently defined."
+
+  development:
+    frontend:
+      working_directory: "client"
+      command: "yarn watch"
+
+    backend:
+      working_directory: "server"
+      command: "yarn watch"
+
+database:
+  required: true
+  engine: "mysql"
+  database_name: "todo"
+
+  setup:
+    verified_cross_platform: false
+    reason: "The documented database setup uses macOS and Homebrew-specific commands."
+
+  required_for:
+    - "backend runtime"
+    - "database integration validation"
+
+  not_required_for:
+    - "frontend-only static changes"
+    - "frontend build"
+    - "repository configuration changes"
+
+execution:
+  planning_allowed: true
+  code_execution_allowed: true
+
+  require_task_branch: true
+  direct_push_to_default_branch: false
+  require_pull_request: true
+  allow_automatic_merge: false
+  require_human_review: true
+
+  branch_prefix: "zeroflesh/"
+
+  maximum_files_changed: 10
+  maximum_lines_changed: 500
+
+validation:
+  required_checks:
+    frontend_changes:
+      - "frontend_build"
+
+    backend_changes:
+      - "backend_build"
+
+    fullstack_changes:
+      - "frontend_build"
+      - "backend_build"
+
+  optional_checks:
+    - "frontend_test"
+
+  unavailable_checks:
+    - "backend_test"
+    - "lint"
+
+  failure_policy:
+    build_failure: "block_pull_request_completion"
+    test_failure: "report_and_require_human_review"
+    missing_validation_command: "report_explicitly"
+
+protected_paths:
+  require_pre_execution_approval:
+    - ".github/workflows/"
+    - ".env"
+    - ".env.*"
+    - "/*.pem"
+    - "/*.key"
+    - "/*secret*"
+    - "server/createDb.sh"
+    - "server//*migration*"
+    - "server//*database*"
+    - "server//*auth*"
+    - "package.json"
+    - "client/package.json"
+    - "server/package.json"
+    - "yarn.lock"
+
+  generated_files:
+    - "client/src/generated/"
+    - "server/src/generated/**"
+generated_file_policy: "Modify generated files only when the associated generation command is also run."
+
+risk:
+  low:
+    examples:
+      - "text changes"
+      - "small UI styling changes"
+      - "README updates"
+      - "isolated frontend component fixes"
+
+  medium:
+    examples:
+      - "GraphQL query changes"
+      - "GraphQL resolver changes"
+      - "dependency updates"
+      - "cross-workspace changes"
+      - "generated code changes"
+
+  high:
+    examples:
+      - "authentication changes"
+      - "database schema changes"
+      - "database deletion or reset commands"
+      - "secret handling"
+      - "workflow changes"
+      - "deployment changes"
+      - "dependency lockfile changes"
+
+approvals:
+  require_owner_approval_before_execution_for:
+    - "high-risk tasks"
+    - "protected path modifications"
+    - "database schema changes"
+    - "dependency changes"
+    - "workflow changes"
+    - "secret or authentication changes"
+
+  require_owner_approval_before_merge: true
+
+agents:
+  allowed:
+    - "planning"
+    - "frontend"
+    - "backend"
+    - "build"
+    - "qa"
+    - "code-review"
+    - "security-review"
+
+  required_by_task:
+    frontend:
+      - "planning"
+      - "frontend"
+      - "build"
+      - "code-review"
+
+    backend:
+      - "planning"
+      - "backend"
+      - "build"
+      - "code-review"
+
+    fullstack:
+      - "planning"
+      - "frontend"
+      - "backend"
+      - "build"
+      - "code-review"
+
+    high_risk:
+      - "planning"
+      - "security-review"
+      - "code-review"
+
+limitations:
+  - "No server-side automated test command is currently available."
+  - "No standalone lint command is currently available."
+  - "Database setup is not verified for Windows or Linux."
+  - "Node and Yarn versions are not pinned."
+  - "The repository is deprecated and may contain outdated dependencies."
+  - "Local execution is unavailable until a worker or clone-based execution layer is connected."
